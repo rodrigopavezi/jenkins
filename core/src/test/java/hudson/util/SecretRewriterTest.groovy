@@ -52,7 +52,7 @@ class SecretRewriterTest {
         try {
             f.text = before
             sr.rewrite(f,null)
-            assert after.trim()==f.text.trim()
+            assert after.trim().replaceAll("(\\r|\\n)", "") == f.text.trim().replaceAll("(\\r|\\n)", "")
         } finally {
             f.delete()
         }
